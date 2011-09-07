@@ -55,4 +55,5 @@ public class ImageButton extends Button implements Displayable {
 	}
 	
 	public void testMethod5(){};
+	public void testMethod6(){};
 }
