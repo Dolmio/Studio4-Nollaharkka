@@ -26,11 +26,21 @@ public class ImageButton extends Button implements Displayable {
 		return overRect(getLocation().x, getLocation().y, width, height);
 	}
 	
+	protected void onClick(){
+		currentImage = down;
+	}
+	
+	protected void onMouseOver(){
+		currentImage = roll;
+	}
+	
 	public void update(){
-		super.update();
-		if(pressed()) currentImage = down;
-		else if(mouseOver()) currentImage = roll;
+		if(pressed() && !locked){
+			onClick();
+		}
+		else if(mouseOver()) onMouseOver();
 		else currentImage = base;
+		super.update();
 	}
 	
 	private void drawBackground(){
