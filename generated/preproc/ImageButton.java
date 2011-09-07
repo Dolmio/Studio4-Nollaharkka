@@ -43,5 +43,6 @@ public class ImageButton extends Button implements Displayable {
 		parent.image(currentImage, getLocation().x, getLocation().y, width, height);
 		
 	}
+	public void testMethod2(){};
 
 }
