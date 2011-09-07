@@ -29,7 +29,8 @@ public void setup(){
 	Point location = new Point(width/2 - b.width/2, height/2 - b.height/2); 
 	int w = b.width;
 	int h = b.height;
-	button = new ImageButton(location, w, h, b, r, p, this);
+	ToggleBehaviour behaviour = new BasicPen(this);
+	button = new TogglableImageButton(location, w, h, b, r, p, behaviour, this);
 } 
  
 public void draw(){ 
