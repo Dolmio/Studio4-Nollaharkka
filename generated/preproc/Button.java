@@ -3,25 +3,25 @@ import java.awt.Point;
 import processing.core.PApplet;
 
 
-abstract class Button implements Updateable, Displayable {
+abstract class Button implements Updateable{
 	
-	private PApplet parent;
+	protected PApplet parent;
 	private Point location;
-	private boolean mouseOver;
-	private boolean pressed;
+	protected int baseColor, higlightColor, currentColor;
 	
 	public Button(PApplet parent){
 		this.parent = parent;
-		mouseOver = false;
-		pressed = false;
+		baseColor = 255;
+		higlightColor = 100;
+		currentColor = baseColor;
+		
 		
 	}
-	protected PApplet getParent(){
-		return parent;
-	}
 	
-	public void display(){};
-	public void update(){};
+	public void update(){
+		if(mouseOver()) currentColor = higlightColor;
+		else currentColor = baseColor;
+	};
 	
 	public Point getLocation(){
 		return location;
@@ -31,13 +31,18 @@ abstract class Button implements Updateable, Displayable {
 		location = p;
 	}
 	
-	public void pressed(){
-		pressed = (mouseOver && (parent.mousePressed));
+	public boolean pressed(){
+		return (mouseOver() && (parent.mousePressed));
 	}
 	
 	protected boolean overRect(int x, int y, int width, int height){
 		return (parent.mouseX >= x && parent.mouseX <= x+width && 
 			      parent.mouseY >= y && parent.mouseY <= y+height);
+	}
+	
+	//overridaa alaluokassa
+	public boolean mouseOver(){
+		return false;
 	}
 	
 }
