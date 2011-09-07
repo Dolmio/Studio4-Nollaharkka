@@ -45,4 +45,8 @@ abstract class Button implements Updateable{
 		return false;
 	}
 	
+	public boolean testMethod(){
+		return false;
+	}
+	
 }
