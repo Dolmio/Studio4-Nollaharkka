@@ -1,6 +1,6 @@
 
 public interface Togglable {
-	boolean isToggled();
+	public boolean isToggled();
 	
 	
 }

@@ -23,9 +23,7 @@ abstract class Button implements Updateable{
 	public void update(){
 		if(mouseOver()) currentColor = higlightColor;
 		else currentColor = baseColor;
-		if(pressed()){
-			locked = true;
-		}
+		if(pressed()) locked = true;
 		else locked = false;
 	};
 	
@@ -41,7 +39,9 @@ abstract class Button implements Updateable{
 		return (mouseOver() && (parent.mousePressed));
 	}
 	
-	protected void onClick(){};
+	protected void onClick(){
+		
+	};
 	
 	protected void onMouseOver(){};
 	

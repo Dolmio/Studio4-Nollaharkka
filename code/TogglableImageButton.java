@@ -25,13 +25,15 @@ public class TogglableImageButton extends ImageButton implements Togglable {
 	
 	public void onClick(){
 		super.onClick();
-		System.out.println("onClick: " + isToggled);
+		//System.out.println("onClick: " + isToggled);
 		if(isToggled) isToggled = false;
 		else(isToggled) = true;
 	}
 	
+	
 	public void update(){
 		super.update();
-		if(isToggled)toggleBehaviour.onToggle();
+		toggleBehaviour.update();
+		if(isToggled && !locked)toggleBehaviour.onToggle();
 	}
 }
