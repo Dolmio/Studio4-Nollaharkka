@@ -9,9 +9,9 @@ public class TogglableImageButton extends ImageButton implements Togglable {
 	private ToggleBehaviour toggleBehaviour;
 	private boolean isToggled;
 	
-	public TogglableImageButton(Point location, int width, int height,
+	public TogglableImageButton(Shape shape, Point location, int width, int height,
 			PImage base, PImage roll, PImage down, ToggleBehaviour behaviour, PApplet parent) {
-		super(location, width, height, base, roll, down, parent);
+		super(shape, location, width, height, base, roll, down, parent);
 		isToggled = false;
 		this.toggleBehaviour = behaviour;
 	}
@@ -26,8 +26,7 @@ public class TogglableImageButton extends ImageButton implements Togglable {
 	public void onClick(){
 		super.onClick();
 		//System.out.println("onClick: " + isToggled);
-		if(isToggled) isToggled = false;
-		else(isToggled) = true;
+		if(!locked)isToggled = !isToggled;
 	}
 	
 	

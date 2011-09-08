@@ -34,7 +34,8 @@ public void setup(){
 	int h = b.height;
 	this.strokeColor = 255;
 	ToggleBehaviour behaviour = new BasicPen(this);
-	button = new TogglableImageButton(location, w, h, b, r, p, behaviour, this);
+	Rectangle rec = new Rectangle(location, w, h, this);
+	button = new TogglableImageButton(rec, location, w, h, b, r, p, behaviour, this);
 	
 	cp = new ColorPicker(20,20, 100, 100, 0, this);
 } 

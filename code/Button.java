@@ -6,11 +6,13 @@ import processing.core.PApplet;
 abstract class Button implements Updateable{
 	
 	protected PApplet parent;
+	private Shape shape;
 	private Point location;
 	protected int baseColor, higlightColor, currentColor;
 	protected boolean locked;
 	
-	public Button(PApplet parent){
+	public Button(Shape shape, PApplet parent){
+		this.shape = shape;
 		this.parent = parent;
 		baseColor = 255;
 		higlightColor = 100;
@@ -39,24 +41,19 @@ abstract class Button implements Updateable{
 		return (mouseOver() && (parent.mousePressed));
 	}
 	
-	protected void onClick(){
-		
-	};
+	protected void onClick(){};
 	
 	protected void onMouseOver(){};
 	
-	protected boolean overRect(int x, int y, int width, int height){
-		return (parent.mouseX >= x && parent.mouseX <= x+width && 
-			      parent.mouseY >= y && parent.mouseY <= y+height);
-	}
+	
 	
 	//overridaa alaluokassa
 	public boolean mouseOver(){
 		return false;
 	}
 	
-	public boolean testMethod(){
-		return false;
+	public void display(){
+		shape.draw();
 	}
 	
 }
