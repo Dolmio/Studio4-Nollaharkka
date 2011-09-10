@@ -14,6 +14,7 @@ public class VariableEllipse implements ToggleBehaviour {
 		if(parent.mousePressed){
 			float speed = Math.abs(parent.mouseX - parent.pmouseX) + 
 			Math.abs(parent.mouseY - parent.pmouseY);
+			parent.fill(parent.getStrokeColor());
 			parent.stroke(speed);
 			parent.ellipse(parent.mouseX, parent.mouseY, speed, speed);
 		}

@@ -87,8 +87,8 @@ public class ColorPicker
       c = parent.get( parent.mouseX, parent.mouseY );
       
     }
-    parent.fill( c );
-    parent.rect( x, y+h+10, 20, 20 );
+    //parent.fill( c );
+    //parent.rect( x, y+h+10, 20, 20 );
   }
   
   public int getSelectedColor(){

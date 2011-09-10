@@ -3,7 +3,7 @@ import java.awt.Point;
 import processing.core.PApplet;
 
 
-abstract class Button implements Updateable{
+abstract class Button implements Updateable, Displayable{
 	
 	protected PApplet parent;
 	private Shape shape;
