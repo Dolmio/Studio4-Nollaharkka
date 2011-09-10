@@ -10,16 +10,15 @@ public class ImageButton extends Button implements Displayable {
 	private int width, height;
 	private MouseOverAlgorithm mouseOverAlgorithm;
 	
-	public ImageButton(Shape shape, Point location, int width, int height, PImage base, PImage roll, PImage down, PApplet parent) {
-		super(shape, parent);
-		super.setLocation(location);
-		this.width = width;
-		this.height = height;
+	public ImageButton(Rectangle rec, PImage base, PImage roll, PImage down, PApplet parent) {
+		super(rec, parent);
+		this.width = rec.getWidth();
+		this.height = rec.getHeight();
 		this.base = base;
 		this.roll = roll;
 		this.down = down;
 		this.currentImage = base;
-		this.mouseOverAlgorithm = new MouseOverRectangle(location, width, height, parent);
+		this.mouseOverAlgorithm = new MouseOverRectangle(rec.getLocation(), width, height, parent);
 	}
 	
 	public boolean mouseOver(){
@@ -34,14 +33,11 @@ public class ImageButton extends Button implements Displayable {
 		currentImage = roll;
 	}
 	
-	public void update(){
-		if(pressed()){
-			onClick();
-		}
-		else if(mouseOver()) onMouseOver();
-		else currentImage = base;
-		super.update();
+	protected void onMouseNotAround(){
+		currentImage = base;
 	}
+	
+	
 	
 	private void drawBackground(){
 		parent.stroke(0);

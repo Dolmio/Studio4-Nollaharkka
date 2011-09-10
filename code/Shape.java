@@ -8,9 +8,24 @@ public abstract class Shape {
 	
 	private Point location;
 	private PApplet parent;
-	public Shape(Point location, PApplet parent){
+	private MouseOverAlgorithm mouseOverAlgorithm;
+	public Shape(Point location, MouseOverAlgorithm mouseOverAlgorithm, PApplet parent){
 		this.location = location;
 		this.parent = parent;
+		this.mouseOverAlgorithm = mouseOverAlgorithm;
 	}
 	public void draw(){};
+	
+	
+	public Point getLocation(){
+		return location;
+	}
+	
+	protected PApplet getParent(){
+		return parent;
+	}
+	
+	public boolean mouseOver(){
+		return mouseOverAlgorithm.MouseOver();
+	}
 }

@@ -10,10 +10,11 @@ abstract class Button implements Updateable{
 	private Point location;
 	protected int baseColor, higlightColor, currentColor;
 	protected boolean locked;
-	
+
 	public Button(Shape shape, PApplet parent){
 		this.shape = shape;
 		this.parent = parent;
+		this.location = shape.getLocation();
 		baseColor = 255;
 		higlightColor = 100;
 		currentColor = baseColor;
@@ -23,10 +24,22 @@ abstract class Button implements Updateable{
 	}
 	
 	public void update(){
-		if(mouseOver()) currentColor = higlightColor;
-		else currentColor = baseColor;
-		if(pressed()) locked = true;
-		else locked = false;
+		if(pressed()){
+			onClick();
+			locked = true;
+		}
+		else {
+			locked = false;
+		
+			if(mouseOver()){
+				onMouseOver();
+				
+			}
+			else onMouseNotAround();
+		}
+		
+		//if(parent.keyPressed) locked = true;		
+		
 	};
 	
 	public Point getLocation(){
@@ -41,15 +54,21 @@ abstract class Button implements Updateable{
 		return (mouseOver() && (parent.mousePressed));
 	}
 	
-	protected void onClick(){};
+	protected void onClick(){
+		
+	};
 	
-	protected void onMouseOver(){};
+	protected void onMouseOver(){
+		currentColor = higlightColor;
+	}
+	
+	protected void onMouseNotAround(){
+		currentColor = baseColor;
+	}
 	
 	
-	
-	//overridaa alaluokassa
 	public boolean mouseOver(){
-		return false;
+		return shape.mouseOver();
 	}
 	
 	public void display(){
