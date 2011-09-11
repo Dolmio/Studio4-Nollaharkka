@@ -8,6 +8,7 @@ public class MouseOverCircle implements MouseOverAlgorithm {
 	private Point location;
 	private int diameter;
 	private PApplet parent;
+	
 	public MouseOverCircle(Point location, int diameter, PApplet parent){
 		this.location = location;
 		this.diameter = diameter;

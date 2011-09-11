@@ -108,6 +108,13 @@ public class Canvas extends PApplet {
 		buttons.add(button4);
 		
 		
+		ToggleBehaviour behaviour5 = new Doodle(this);
+		Rectangle rec5 = new Rectangle(new Point(getMenuStartX() + 40 ,280), 30, 30, 0 ,60, this);
+		ToggleButton button5 = new ToggleButton(rec5, behaviour5, KeyEvent.VK_D, this);
+		button5.setText("D");
+		buttons.add(button5);
+		
+		
 	}
 	
 	private void drawMenuTexts(){
