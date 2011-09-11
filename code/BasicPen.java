@@ -8,7 +8,7 @@ public class BasicPen implements ToggleBehaviour {
 	
 	public BasicPen(Canvas parent){
 		this.parent = parent;
-		color = parent.getStrokeColor();
+		color = parent.getSelectedColor();
 	}
 	
 	
@@ -21,7 +21,7 @@ public class BasicPen implements ToggleBehaviour {
 		
 	}
 	public void updateColor(){
-		color = this.parent.getStrokeColor();
+		color = this.parent.getSelectedColor();
 	}
 	public void setColor(int color){
 		this.color = color;

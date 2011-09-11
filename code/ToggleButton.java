@@ -9,14 +9,15 @@ public class ToggleButton extends Button implements Togglable {
 	private boolean isToggled;
 	private ToggleBehaviour toggleBehaviour;
 	private int shortcut;
-	private int lastPressedKey;
+	private Canvas parent;
 	
 	public ToggleButton(Shape shape, ToggleBehaviour behaviour, int shortcut,  Canvas parent) {
 		super(shape, parent);
 		isToggled = false;
 		this.toggleBehaviour = behaviour;
 		this.shortcut = shortcut;
-		lastPressedKey = 0;
+		this.parent = parent;
+		
 	
 	}
 	
@@ -30,12 +31,12 @@ public class ToggleButton extends Button implements Togglable {
 		if(!locked) toggle();
 	}
 	
-	private void updateLastPressedKey(){
-		if(parent.keyCode != 0) lastPressedKey = parent.keyCode;
-	}
+	
 	
 	public void toggle(){
 		isToggled = !isToggled;
+		if(isToggled)shape.setStrokeColor(255);
+		else shape.setStrokeColor(0);
 		
 	}
 	
@@ -46,8 +47,12 @@ public class ToggleButton extends Button implements Togglable {
 	public void update(){
 		super.update();
 		toggleBehaviour.update();
-		if(isToggled && !locked)toggleBehaviour.onToggle();
+		if(isToggled && !locked && parent.mouseX < parent.getMenuStartX()){
+			toggleBehaviour.onToggle();
+		}
 	}
+	
+	
 	
 	
 	
