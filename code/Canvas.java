@@ -20,9 +20,8 @@ import java.util.regex.*;
 public class Canvas extends PApplet {
 
 	private static final int MENU_WIDTH = 120;
-	private static final int[] FRAME_DIMS = {800,600};	
+	private static final int[] FRAME_DIMS = {1000,600};	
 	private int canvasColor;
-	private ImageButton button;
 	private ColorPicker cp;
 	private int selectedColor;
 	private int fillColor;
@@ -38,13 +37,7 @@ public class Canvas extends PApplet {
 		this.buttons = new ArrayList<Button>();
 		
 		this.font = loadFont("STHeitiTC-Light-12.vlw");
-		PImage b = loadImage("Pen-icon-base.png");
-		PImage r = loadImage("Pen-icon-roll.png");
-		PImage p = loadImage("Pen-icon-pressed.png");
-		Point location = new Point(width/2 - b.width/2, height/2 - b.height/2); 
-		int w = b.width;
-		int h = b.height;
-		//button = new TogglableImageButton(rec, b, r, p, behaviour, this);
+		
 		this.selectedColor = 0;
 		
 		canvasColor = 0;

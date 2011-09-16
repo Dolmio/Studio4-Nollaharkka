@@ -2,6 +2,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 
+/*
+ * source: http://www.julapy.com/processing/ColorPicker.pde
+ */
+
 public class ColorPicker 
 {
   private int x, y, w, h, c;
